@@ -2,6 +2,8 @@ package com.cucumber.Cucumber.steps;
 
 import com.cucumber.Cucumber.config.ApplicationConfig;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.spring.CucumberContextConfiguration;
@@ -16,7 +18,7 @@ import java.util.List;
 public class CucumberSteps {
 
     @Autowired
-    List<String>  employees;
+    List<String> employees;
 
     @Autowired
     private SoftAssertions softAssertions;
@@ -34,7 +36,7 @@ public class CucumberSteps {
     }
 
     @After
-    public void testAll(){
+    public void testAll() {
         softAssertions.assertAll();
     }
 

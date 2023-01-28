@@ -6,8 +6,12 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/features"},
-        glue = {"com.cucumber.Cucumber.steps"}
+        snippets = CucumberOptions.SnippetType.CAMELCASE,
+        features = {"classpath:features"},
+        glue = {"com.cucumber.Cucumber.steps"},
+        plugin = {"pretty", "cucumberHooks.customReportListener",
+                "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"},
+        tags = "@SmokeTest"
 )
 public class Runner {
 }
